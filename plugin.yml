@@ -1,0 +1,12 @@
+---
+name: AllInOneNpc
+author: HighestDreams
+version: 1.0.0
+main: HighestDreams\AllInOneNpc\Loader
+api: 4.0.0
+src-namespace-prefix: HighestDreams\AllInOneNpc
+permissions:
+  npc.command:
+    description: Allow players to use /npc
+    default: op
+...
