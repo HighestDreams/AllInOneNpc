@@ -31,7 +31,7 @@ class NameTagForm extends CustomForm
 
     protected function onSubmit(Player $player, array $data): void
     {
-
+        /* (?) If npc name is not changed, Open previous form */
         if ($data[1] == $this->npc->getNameTag()) {
             $player->sendForm(new SettingsForm($this->npc));
             return;

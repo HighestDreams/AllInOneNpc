@@ -22,4 +22,9 @@ trait Accessors
     {
         return in_array($value, $this->class()->source[$index]);
     }
+
+    public final function getAll(string $index): array
+    {
+        return $this->class()->source[$index];
+    }
 }

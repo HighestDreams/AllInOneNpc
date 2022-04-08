@@ -47,11 +47,10 @@ class ManagementForm extends SimpleForm
             case 1:
                 // Commands
                 break;
-            case 2:
-                // Teleport
-                break;
-            case 4:
-                // Delete
+            case 2: /* (?) Teleport */
+                //
+            case 3: /* (?) Delete */
+                $player->sendForm(new DeletionForm($this->npc));
                 break;
         }
     }

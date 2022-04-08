@@ -32,25 +32,20 @@ class SettingsForm extends SimpleForm
         return [
             C::BOLD . 'Name',
             C::BOLD . 'Skin',
-            C::BOLD . 'Emote',
             C::DARK_RED . 'Back'
         ];
     }
 
     protected function onClickButton(Player $player, int $button): void
     {
-        switch ($button)
-        {
+        switch ($button) {
             case 0: /* (?) Name */
                 $player->sendForm(new NameTagForm($this->npc));
                 break;
             case 1: /* (?) Skin */
-                // Skin
+                $player->sendForm(new SkinForm($this->npc));
                 break;
-            case 2: /* (?) Emote */
-                // Emote
-                break;
-            case 3: /* (?) Back */
+            case 2: /* (?) Back */
                 $player->sendForm(new ManagementForm($this->npc));
                 break;
         }
