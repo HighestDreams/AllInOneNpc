@@ -24,7 +24,7 @@ class EventsHandler implements Listener
                 if ($player instanceof Player) {
                     /* (?) If player is in editor mode, it must open Management form */
                     if (Loader::getInstance()->setupManager()->exist($player->getName(), 'editor')) {
-                        $player->sendForm(new ManagementForm());
+                        $player->sendForm(new ManagementForm($npc));
                         return;
                     }
                     /* Execute the commands of Npc */

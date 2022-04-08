@@ -6,11 +6,17 @@ namespace HighestDreams\AllInOneNpc\form\settings;
 
 use HighestDreams\AllInOneNpc\form\api\SimpleForm;
 use HighestDreams\AllInOneNpc\form\ManagementForm;
+use HighestDreams\AllInOneNpc\npc\NpcEntity;
 use pocketmine\player\Player;
 use pocketmine\utils\TextFormat as C;
 
 class SettingsForm extends SimpleForm
 {
+    public function __construct(private NpcEntity $npc)
+    {
+        parent::__construct();
+    }
+
     protected function title(): string
     {
         return C::BOLD . C::DARK_PURPLE . '[Settings]';
@@ -36,7 +42,7 @@ class SettingsForm extends SimpleForm
         switch ($button)
         {
             case 0: /* (?) Name */
-                // Name
+                $player->sendForm(new NameTagForm($this->npc));
                 break;
             case 1: /* (?) Skin */
                 // Skin
@@ -45,7 +51,7 @@ class SettingsForm extends SimpleForm
                 // Emote
                 break;
             case 3: /* (?) Back */
-                $player->sendForm(new ManagementForm());
+                $player->sendForm(new ManagementForm($this->npc));
                 break;
         }
     }
