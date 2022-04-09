@@ -9,4 +9,7 @@ permissions:
   npc.command:
     description: Allow players to use /npc
     default: op
+  rcap.command:
+    description: Allow players to run command as player (/rcap)
+    default: op
 ...

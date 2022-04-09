@@ -9,6 +9,7 @@ use HighestDreams\AllInOneNpc\npc\NpcEntity;
 use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
+use pocketmine\event\player\PlayerEntityInteractEvent;
 use pocketmine\player\Player;
 
 class EventsHandler implements Listener
@@ -28,8 +29,24 @@ class EventsHandler implements Listener
                         return;
                     }
                     /* Execute the commands of Npc */
+                    $npc->command()->execute($npc::MODE_SLAP, $player);
                 }
             }
+        }
+    }
+
+    public function onInteractNpc(PlayerEntityInteractEvent $event)
+    {
+        $player = $event->getPlayer();
+        $npc = $event->getEntity();
+        if ($npc instanceof NpcEntity) {
+            /* (?) If player is in editor mode, it must open Management form */
+            if (Loader::getInstance()->setupManager()->exist($player->getName(), 'editor')) {
+                $player->sendForm(new ManagementForm($npc));
+                return;
+            }
+            /* Execute the commands of Npc */
+            $npc->command()->execute($npc::MODE_INTERACT, $player);
         }
     }
 }

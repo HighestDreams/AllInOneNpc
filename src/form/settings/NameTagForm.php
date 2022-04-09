@@ -19,7 +19,7 @@ class NameTagForm extends CustomForm
 
     protected function title(): string
     {
-        return C::BOLD . C::DARK_PURPLE . '[Name Tag]';
+        return C::BOLD . C::DARK_PURPLE . '[§l§8Name Tag§r§5]';
     }
 
     protected function content(): void

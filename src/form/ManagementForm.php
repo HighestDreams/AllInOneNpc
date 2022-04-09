@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace HighestDreams\AllInOneNpc\form;
 
 use HighestDreams\AllInOneNpc\form\api\SimpleForm;
+use HighestDreams\AllInOneNpc\form\commands\CommandsForm;
 use HighestDreams\AllInOneNpc\form\settings\SettingsForm;
 use HighestDreams\AllInOneNpc\npc\NpcEntity;
 use pocketmine\player\Player;
@@ -19,7 +20,7 @@ class ManagementForm extends SimpleForm
 
     protected function title(): string
     {
-        return C::BOLD . C::DARK_PURPLE . '[All In One NPC]';
+        return C::BOLD . C::DARK_PURPLE . '[§l§8Npc Menu§r§5]';
     }
 
     protected function content(): string
@@ -44,8 +45,8 @@ class ManagementForm extends SimpleForm
             case 0: /* (?) Settings */
                 $player->sendForm(new SettingsForm($this->npc));
                 break;
-            case 1:
-                // Commands
+            case 1: /* (?) Commands */
+                $player->sendForm(new CommandsForm($this->npc));
                 break;
             case 2: /* (?) Teleport */
                 //
