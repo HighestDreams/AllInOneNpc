@@ -40,6 +40,7 @@ class NpcEntity extends Human
     public function saveNBT(): CompoundTag
     {
         $nbt = parent::saveNBT();
+        /* Saving commands */
         $commandsTag = new ListTag([], NBT::TAG_String);
         foreach (['SlapCommands' => self::MODE_SLAP, 'InteractCommands' => self::MODE_INTERACT] as $tag => $mode) {
             $nbt->setTag($tag, $commandsTag);
