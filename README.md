@@ -1,4 +1,4 @@
-##IMPORTANT
+## IMPORTANT
 Because dylan's mom is so mad at me (Because i sweared her son), I cannot continue this project anymore... If you are interested to continue the project, Just delete license & Readme.md files and do what ever you want to this project...
 ## What is this?
 * New slapper/npc plugin that focuses most of all on <strong>ease of use</strong> and <strong>code optimization</strong> and planned <strong>features</strong>.
